@@ -1,13 +1,14 @@
-const express = require('express');
 const app = express();
 
 const { createTodo} = require("./types");
 const { updateTodo} = require("./types");
 const { todo } = require('./db');
+const cors = require('cors')
 
 // parse incoming JSON requests
 app.use(express.json());
 
+app.use(cors());
 
 
 
@@ -73,6 +74,6 @@ res.json({
 
 })
 // start the server
-app.listen(3000, () => {
+app.listen(10000, () => {
   console.log('Example app listening on port 3000!');
 });
